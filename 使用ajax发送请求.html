@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery.js"></script>
+</head>
+
+<body>
+    <button id="btnGET">GET请求</button>
+    <button id="btnPOST">POST请求</button>
+</body>
+<script>
+    $(function() {
+        $("#btnGET").on("click", function() {
+            $.ajax({
+                type: 'GET',
+                url: 'http://www.liulongbin.top:3006/api/getbooks',
+                data: {
+                    bookname: "时间简史2"
+                },
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+        })
+        $("#btnPOST").on("click", function() {
+            $.ajax({
+                type: 'POST',
+                url: 'http://www.liulongbin.top:3006/api/addbook',
+                data: {
+                    bookname: "时间简史2",
+                    author: '马腾远',
+                    publisher: '上海图书出版社'
+                },
+                success: function(res) {
+                    console.log(res);
+                }
+            })
+        })
+    })
+</script>
+
+</html>
